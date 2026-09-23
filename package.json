@@ -1,0 +1,11 @@
+{
+  "name": "site-watch",
+  "private": true,
+  "type": "module",
+  "description": "Uptime / TLS / IPv6 checks for Lucas's and BEHG's sites; Telegram on state change.",
+  "scripts": {
+    "check": "node check.mjs",
+    "test": "node --test tests/lib.test.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

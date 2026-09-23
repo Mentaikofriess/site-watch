@@ -1,0 +1,11 @@
+{
+  "//": "Add a site = add one entry. id: stable slug. url: the page to load. expectText: optional string that must appear in the HTML (catches 'up but broken'). maxMs: slower than this = degraded. ipv6: also check over IPv6 (skipped automatically where the runner has no IPv6).",
+  "sites": [
+    { "id": "portfolio", "group": "lucas", "url": "https://www.lucaslimky.com/", "expectText": "Lucas", "maxMs": 4000, "ipv6": true },
+    { "id": "burnt-ends", "group": "behg", "url": "https://burntends.com.sg/", "maxMs": 5000, "ipv6": true },
+    { "id": "meatsmith", "group": "behg", "url": "https://meatsmith.com.sg/", "maxMs": 5000, "ipv6": true },
+    { "id": "bakery", "group": "behg", "url": "https://bakery.burntends.com.sg/", "maxMs": 6000, "ipv6": true },
+    { "id": "cellars", "group": "behg", "url": "https://burntendscellars.com.sg/", "maxMs": 6000, "ipv6": true },
+    { "id": "meatsmith-xpress", "group": "behg", "url": "https://xpress.meatsmith.com.sg/", "maxMs": 6000, "ipv6": true }
+  ]
+}

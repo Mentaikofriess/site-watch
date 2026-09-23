@@ -1,0 +1,5 @@
+# The Mac-side run (Command Center's scheduler) keeps its own state locally;
+# only GitHub's runs are committed, so the two never race on a push.
+state/mac/
+node_modules/
+.DS_Store

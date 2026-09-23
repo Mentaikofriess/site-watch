@@ -1,0 +1,33 @@
+name: watch
+# Every 30 min (≈1,440 one-minute runs/month — inside the 2,000 free
+# private-repo minutes; see README "Cost"). GitHub may start scheduled runs a
+# few minutes late or skip one under load; the Mac-side run covers gaps.
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: watch
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - run: node check.mjs --vantage github
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: commit state
+        run: |
+          git config user.name "site-watch"
+          git config user.email "site-watch@users.noreply.github.com"
+          git add state/github
+          git diff --cached --quiet || git commit -q -m "state: check [skip ci]"
+          git pull -q --rebase && git push -q
