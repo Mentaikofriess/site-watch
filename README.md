@@ -1,8 +1,8 @@
 # site-watch
 
 Checks Lucas's and BEHG's websites from GitHub's servers, so it keeps
-watching while the Mac is asleep: **every 5 minutes once the repo is public**
-(Actions are free on public repos; hourly at :35 until then). A second copy
+watching while the Mac is asleep: **every 5 minutes** (the repo is public,
+so Actions are free; made public 2026-09-24). A second copy
 runs hourly on the Mac through Command Center's scheduler. It's the only place
 that can test **IPv6** (GitHub's runners have none), and it never messages
 Telegram. Part of Command Center's N-series (N3), 2026-09-23.
@@ -80,11 +80,11 @@ minutes cost **US$0.006/min** (2026 price).
 
 | Every | Runs / month | Minutes / month | Est. cost (private repo) |
 |---|---|---|---|
-| **60 min (now)** | 720 | ~720 | **$0** (inside 2,000, if other repos stay under ~1,280) |
+| 60 min | 720 | ~720 | $0 (inside 2,000, if other repos stay under ~1,280) |
 | 30 min | 1,440 | ~1,440 | $0 (inside 2,000, if other repos stay under ~560) |
 | 15 min | 2,880 | ~2,880 | ~$5.30 |
 | 10 min | 4,320 | ~4,320 | ~$14 |
-| 5 min (GitHub's minimum) | 8,640 | ~8,640 | ~$40 |
+| **5 min (now — public repo, so $0)** | 8,640 | ~8,640 | ~$40 if the repo were private |
 
 A site that's **down** makes that run longer (timeouts + retry ≈ +45 s), which
 can push a run to 2 billed minutes — only while something is broken.
