@@ -26,15 +26,17 @@ export function siteState(site, probes) {
 }
 
 /**
- * Carries each site's state streak forward and decides what to alert.
- * - down, and recovery from down: alert at once (the check already retried).
- * - degraded (slow / IPv6 / TLS) and recovery from degraded: only once the new
- *   state has held for 2 consecutive runs — single slow responses are noise.
- * - a brand-new site that is up: silent.
- * - blocked (a CDN refuses this vantage): silent. It says nothing about the
- *   site, so it neither alerts nor clears the last alerted state, except that
- *   down → blocked is sent once as a correction.
- * Returns the next per-site record ({state, streak, alerted}) and the alerts.
+ * Carries each site's state streak forward and decides what to ping at once.
+ * Lucas (2026-09-24): Telegram should be a daily digest plus pings only for
+ * sustained outages, so:
+ * - down: ping once it has held for 2 consecutive runs (each run already
+ *   retries after 5 s). At 5-minute checks that's ≈ 5–10 min of downtime.
+ * - recovery: ping only if the down was pinged (closes the loop).
+ * - degraded (slow / IPv6 / TLS): never pinged; it's in the digest.
+ * - blocked (a CDN refuses this vantage): silent, except down → blocked,
+ *   which corrects an earlier false "down".
+ * - a brand-new site: silent.
+ * Returns the next per-site record ({state, streak, alerted}) and the pings.
  */
 export function transitions(previous, current) {
   const next = {};
@@ -45,15 +47,65 @@ export function transitions(previous, current) {
     const lastAlerted = prev?.alerted ?? (prev ? prev.state : undefined);
     next[id] = { ...cur, streak, alerted: lastAlerted };
     if (lastAlerted === cur.state) continue;
-    if (cur.state === "blocked" && lastAlerted !== "down") continue;
-    if (lastAlerted === undefined && cur.state === "up") { next[id].alerted = "up"; continue; }
-    const immediate = cur.state === "down" || lastAlerted === "down";
-    if (immediate || streak >= 2) {
-      alerts.push({ id, from: lastAlerted ?? "new", to: cur.state, reason: cur.reason });
-      next[id].alerted = cur.state;
-    }
+    const send = () => { alerts.push({ id, from: lastAlerted ?? "new", to: cur.state, reason: cur.reason }); next[id].alerted = cur.state; };
+    if (cur.state === "down") { if (streak >= 2) send(); continue; }
+    if (lastAlerted === "down") { send(); continue; } // up, degraded or blocked after a pinged down
+    if (cur.state === "up") next[id].alerted = "up"; // quietly track "all clear"
   }
   return { next, alerts };
+}
+
+/** One history line per run: {at, sites: {id: [state, ms, reason?]}}. */
+export function historyLine(at, current) {
+  return { at, sites: Object.fromEntries(Object.entries(current).map(([k, v]) => [k, v.state === "up" ? [v.state, v.ms] : [v.state, v.ms, v.reason]])) };
+}
+
+const sgt = (iso) => new Date(iso).toLocaleTimeString("en-GB", { timeZone: "Asia/Singapore", hour: "2-digit", minute: "2-digit" });
+
+/**
+ * The 10:00 SGT digest from the last 24 h of history lines (oldest first).
+ * A "period" is a run of consecutive checks in the same non-up state. Checks
+ * are samples, so a period is reported as first/last seen plus the next
+ * check that saw it up again, not as an exact duration.
+ */
+export function digest(lines, siteIds, now, expectedRuns) {
+  const since = now.getTime() - 86_400_000;
+  const runs = lines.filter((l) => Date.parse(l.at) >= since);
+  const out = [`📋 site-watch — last 24 h to ${sgt(now.toISOString())} SGT`, `${runs.length} check${runs.length === 1 ? "" : "s"} ran (expected ≈ ${expectedRuns})`];
+  if (!runs.length) return out.concat("⚠️ No checks at all in 24 h. Is the workflow running?").join("\n");
+  const clean = [];
+  const blocked = [];
+  const sections = [];
+  for (const id of siteIds) {
+    const periods = [];
+    let open = null;
+    for (const r of runs) {
+      const [state, , reason] = r.sites[id] ?? [];
+      if (!state) continue;
+      if (state === "up") {
+        if (open) { open.clearedAt = r.at; periods.push(open); open = null; }
+        continue;
+      }
+      if (open && open.state === state) { open.last = r.at; open.n++; if (reason) open.reasons.add(reason); continue; }
+      if (open) periods.push(open);
+      open = { state, first: r.at, last: r.at, n: 1, reasons: new Set(reason ? [reason] : []) };
+    }
+    if (open) periods.push(open);
+    const real = periods.filter((p) => p.state !== "blocked");
+    if (periods.length && !real.length) { blocked.push(id); continue; }
+    if (!real.length) { clean.push(id); continue; }
+    const lines2 = real.map((p) => {
+      const span = p.n > 1 ? `${sgt(p.first)}–${sgt(p.last)} (${p.n} checks)` : `${sgt(p.first)} (1 check)`;
+      const end = p.clearedAt ? `, up again ${sgt(p.clearedAt)}` : ", still at the last check";
+      return `   ${p.state} ${span}${end} — ${[...p.reasons].join(" / ") || "no detail"}`;
+    });
+    const icon = real.some((p) => p.state === "down") ? "🔴" : "⚠️";
+    sections.push(`${icon} ${id}\n${lines2.join("\n")}`);
+  }
+  if (clean.length) out.push(`✅ up at every check: ${clean.join(", ")}`);
+  out.push(...sections);
+  if (blocked.length) out.push(`ℹ️ not visible from GitHub (Hostinger CDN blocks it; the Mac checks these): ${blocked.join(", ")}`);
+  return out.join("\n");
 }
 
 export function daysUntil(dateString, now = new Date()) {

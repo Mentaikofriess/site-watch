@@ -1,19 +1,29 @@
 # site-watch
 
-Checks Lucas's and BEHG's websites every hour (at :35) from GitHub's servers —
-so it keeps watching while the Mac is asleep — and messages Telegram **only
-when something changes** (down, degraded, recovered). A second copy runs on
-the Mac through Command Center's scheduler, which is the only place that can
-test **IPv6** (GitHub's runners have none). Part of Command Center's N-series
-(N3), 2026-09-23. The Mac copy runs at :05, so while the Mac is awake each
-site is checked about every 30 minutes; while it sleeps, hourly.
+Checks Lucas's and BEHG's websites from GitHub's servers, so it keeps
+watching while the Mac is asleep: **every 5 minutes once the repo is public**
+(Actions are free on public repos; hourly at :35 until then). A second copy
+runs hourly on the Mac through Command Center's scheduler. It's the only place
+that can test **IPv6** (GitHub's runners have none), and it never messages
+Telegram. Part of Command Center's N-series (N3), 2026-09-23.
+
+**What Telegram gets (Lucas, 2026-09-24):**
+- **A daily digest at 10:00 SGT** (`digest.yml`), sent even when all is
+  well: each site's down/slow periods over the last 24 h (first and last seen,
+  the check that saw it up again, the error), sites up at every check, and how
+  many checks actually ran.
+- **An immediate ping only for a sustained outage**: down on 2 checks in a
+  row (≈ 5–10 min at 5-minute checks), then one "back up" ping. One-check
+  blips and slow/IPv6/TLS issues go to the digest only.
 
 What it checks per site: HTTP status (following redirects), load time vs a
 limit, an optional text that must appear on the page, days until the TLS
 certificate expires, and — from the Mac — IPv4 and IPv6 separately.
-States: **up**, **degraded** (slow / IPv6 broken / TLS < 14 days), **down**.
-Each check retries once after 5 s; down alerts at once, degraded only after
-two consecutive runs, so a single slow response never pings you.
+States: **up**, **degraded** (slow / IPv6 broken / TLS < 14 days), **down**,
+**blocked** (a CDN refuses this vantage; see the end of this file). Each check
+retries once after 5 s. Checks are samples: an outage shorter than the gap
+between checks can be missed, and a period's real length is somewhere between
+"first seen → last seen" and "last up → up again".
 
 ## One-time setup (≈10 minutes)
 

@@ -5,7 +5,7 @@
 // Env (optional): TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
 import https from "node:https";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { cdnRefused, daysUntil, formatAlert, siteState, transitions } from "./lib.mjs";
+import { cdnRefused, daysUntil, formatAlert, historyLine, siteState, transitions } from "./lib.mjs";
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const VANTAGE = arg("--vantage", process.env.GITHUB_ACTIONS ? "github" : "mac");
@@ -82,11 +82,13 @@ const previous = existsSync(latestPath) ? JSON.parse(readFileSync(latestPath, "u
 const { next, alerts: changes } = transitions(previous, current);
 for (const t of changes) await sendTelegram(formatAlert(t, current[t.id].url, VANTAGE));
 writeFileSync(latestPath, JSON.stringify({ checkedAt: now, vantage: VANTAGE, ipv6Available: v6, sites: next }, null, 2) + "\n");
-// History: one line per run, pruned to the last 30 days so the repo stays small.
+// History: one line per run (non-up entries carry their reason, for the daily
+// digest), pruned to 7 days: at 5-minute checks that's ≈ 2,000 lines, and the
+// file is rewritten in every state commit.
 const histPath = new URL("checks.jsonl", STATE_DIR);
-const cutoff = Date.now() - 30 * 86_400_000;
+const cutoff = Date.now() - 7 * 86_400_000;
 const kept = existsSync(histPath) ? readFileSync(histPath, "utf8").split("\n").filter((l) => l && Date.parse(JSON.parse(l).at) >= cutoff) : [];
-kept.push(JSON.stringify({ at: now, sites: Object.fromEntries(Object.entries(current).map(([k, v]) => [k, [v.state, v.ms]])) }));
+kept.push(JSON.stringify(historyLine(now, current)));
 writeFileSync(histPath, kept.join("\n") + "\n");
 console.log(`${now} ${VANTAGE} ipv6=${v6} ` + Object.entries(current).map(([k, v]) => `${k}=${v.state}`).join(" "));
 for (const [k, v] of Object.entries(current)) if (v.state !== "up") console.log(`  ${k}: ${v.reason}`);
