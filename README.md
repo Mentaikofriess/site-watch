@@ -1,11 +1,12 @@
 # site-watch
 
-Checks Lucas's and BEHG's websites every 30 minutes from GitHub's servers —
+Checks Lucas's and BEHG's websites every hour (at :35) from GitHub's servers —
 so it keeps watching while the Mac is asleep — and messages Telegram **only
 when something changes** (down, degraded, recovered). A second copy runs on
 the Mac through Command Center's scheduler, which is the only place that can
 test **IPv6** (GitHub's runners have none). Part of Command Center's N-series
-(N3), 2026-09-23.
+(N3), 2026-09-23. The Mac copy runs at :05, so while the Mac is awake each
+site is checked about every 30 minutes; while it sleeps, hourly.
 
 What it checks per site: HTTP status (following redirects), load time vs a
 limit, an optional text that must appear on the page, days until the TLS
@@ -69,7 +70,8 @@ minutes cost **US$0.006/min** (2026 price).
 
 | Every | Runs / month | Minutes / month | Est. cost (private repo) |
 |---|---|---|---|
-| **30 min (now)** | 1,440 | ~1,440 | **$0** (inside 2,000, if other repos stay under ~560) |
+| **60 min (now)** | 720 | ~720 | **$0** (inside 2,000, if other repos stay under ~1,280) |
+| 30 min | 1,440 | ~1,440 | $0 (inside 2,000, if other repos stay under ~560) |
 | 15 min | 2,880 | ~2,880 | ~$5.30 |
 | 10 min | 4,320 | ~4,320 | ~$14 |
 | 5 min (GitHub's minimum) | 8,640 | ~8,640 | ~$40 |
@@ -88,7 +90,7 @@ paying per minute:
   only if 1–5-minute detection ever matters.
 
 Also note GitHub may start scheduled runs a few minutes late, or skip one
-when its queues are busy — 30 min is "about every 30 min", not a guarantee.
+when its queues are busy — "hourly" means about hourly, not a guarantee.
 
 ## Running it yourself
 

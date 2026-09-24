@@ -1,10 +1,11 @@
 name: watch
-# Every 30 min (≈1,440 one-minute runs/month — inside the 2,000 free
-# private-repo minutes; see README "Cost"). GitHub may start scheduled runs a
-# few minutes late or skip one under load; the Mac-side run covers gaps.
+# Hourly at :35 (≈720 one-minute runs/month — well inside the 2,000 free
+# private-repo minutes; see README "Cost"). The Mac-side run is at :05, so
+# while the Mac is awake a site is checked about every 30 min. GitHub may
+# start scheduled runs a few minutes late or skip one under load.
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "35 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
