@@ -109,3 +109,19 @@ intermittently don't answer while IPv4 works. Visitors whose network prefers
 IPv6 can see a stall. Fix at the DNS host: repair or remove the apex's AAAA
 records. The Mac-side check reports it as **degraded: IPv6 broken** when it
 happens.
+
+## Hostinger's CDN blocks GitHub (found 2026-09-24)
+
+On the first GitHub run, burntends.com.sg, meatsmith.com.sg and
+burntendscellars.com.sg returned **HTTP 403** and were reported down. They
+weren't: the Mac got 200 with the same request. These three go through
+Hostinger's CDN (`server: hcdn`), which refuses GitHub's runner IPs; bakery
+and xpress are served directly (LiteSpeed) and pass.
+
+A 403/429 whose `server` header is the CDN's own (`hcdn`, `cloudflare`) is now
+state **blocked**, not down. It never alerts, except one "down → blocked"
+message to correct an earlier false "down". A 403 from the site itself, a 5xx
+or a timeout is still **down**. Those three sites are therefore only checked
+from the Mac (hourly, while it's awake). To get GitHub coverage back,
+someone with BEHG's hPanel would allow-list or relax the CDN's bot/security
+setting for these domains. That is BEHG's call, not a change to make here.
