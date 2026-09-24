@@ -1,66 +1,66 @@
 {
-  "checkedAt": "2026-09-24T07:50:10.534Z",
+  "checkedAt": "2026-09-24T12:55:45.134Z",
   "vantage": "github",
   "ipv6Available": false,
   "sites": {
     "portfolio": {
       "state": "up",
-      "reason": "200 in 273 ms",
+      "reason": "200 in 459 ms",
       "url": "https://www.lucaslimky.com/",
       "group": "lucas",
-      "ms": 273,
+      "ms": 459,
       "ipv6Checked": false,
-      "streak": 2,
+      "streak": 3,
       "alerted": "up"
     },
     "burnt-ends": {
       "state": "up",
-      "reason": "200 in 514 ms",
+      "reason": "200 in 400 ms",
       "url": "https://burntends.com.sg/",
       "group": "behg",
-      "ms": 514,
+      "ms": 400,
       "ipv6Checked": false,
-      "streak": 1,
+      "streak": 2,
       "alerted": "up"
     },
     "meatsmith": {
       "state": "up",
-      "reason": "200 in 537 ms",
+      "reason": "200 in 430 ms",
       "url": "https://meatsmith.com.sg/",
       "group": "behg",
-      "ms": 537,
+      "ms": 430,
       "ipv6Checked": false,
-      "streak": 1,
+      "streak": 2,
       "alerted": "up"
     },
     "bakery": {
       "state": "up",
-      "reason": "200 in 1733 ms",
+      "reason": "200 in 1809 ms",
       "url": "https://bakery.burntends.com.sg/",
       "group": "behg",
-      "ms": 1733,
+      "ms": 1809,
       "ipv6Checked": false,
-      "streak": 2,
+      "streak": 3,
       "alerted": "up"
     },
     "cellars": {
       "state": "up",
-      "reason": "200 in 590 ms",
+      "reason": "200 in 450 ms",
       "url": "https://burntendscellars.com.sg/",
       "group": "behg",
-      "ms": 590,
+      "ms": 450,
       "ipv6Checked": false,
-      "streak": 1,
+      "streak": 2,
       "alerted": "up"
     },
     "meatsmith-xpress": {
       "state": "up",
-      "reason": "200 in 2031 ms",
+      "reason": "200 in 1721 ms",
       "url": "https://xpress.meatsmith.com.sg/",
       "group": "behg",
-      "ms": 2031,
+      "ms": 1721,
       "ipv6Checked": false,
-      "streak": 2,
+      "streak": 3,
       "alerted": "up"
     }
   }
