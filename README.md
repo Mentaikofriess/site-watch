@@ -135,3 +135,14 @@ or a timeout is still **down**. Those three sites are therefore only checked
 from the Mac (hourly, while it's awake). To get GitHub coverage back,
 someone with BEHG's hPanel would allow-list or relax the CDN's bot/security
 setting for these domains. That is BEHG's call, not a change to make here.
+
+## Content checks live next door (2026-09-25)
+
+site-watch answers "is the site up?". Whether the site is *telling the
+truth* (events still listed after they happened, bookings that can't be
+made, broken card layouts, Google hours that disagree with the site) is the
+job of the Site Truth Monitor, a separate private repo that runs as a
+Claude Code cloud routine on Mondays and Thursdays. Command Center has a
+reader for its results (playbook `site-truth`, ARCHITECTURE §6 "N3b"),
+switched off for now and kept as a reference. Nothing in this repo changed
+for it.
