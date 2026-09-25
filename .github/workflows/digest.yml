@@ -1,11 +1,16 @@
 name: digest
 # 10:00 SGT = 02:00 UTC. Reads the watch workflow's committed history; no commit.
+# Primary trigger (2026-09-25): Command Center's site-watch-digest playbook
+# dispatches this at 10:00 SGT, because GitHub's cron here runs hours late or
+# not at all. The cron below is the fallback for days the Mac is off; a
+# scheduled run skips itself if a digest already ran (or is running) today SGT.
 on:
   schedule:
     - cron: "0 2 * * *"
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 jobs:
   digest:
     runs-on: ubuntu-latest
@@ -15,7 +20,18 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
-      - run: node digest.mjs --vantage github
+      - id: guard
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          since=$(date -u -d "$(TZ=Asia/Singapore date +%F) 00:00 +0800" +%Y-%m-%dT%H:%M:%SZ)
+          n=$(gh api "repos/${{ github.repository }}/actions/workflows/digest.yml/runs?per_page=20&created=%3E%3D$since" \
+            --jq '[.workflow_runs[] | select(.id != ${{ github.run_id }}) | select(.conclusion == "success" or .status != "completed")] | length')
+          echo "earlier=$n" >> "$GITHUB_OUTPUT"
+          echo "digest runs already today (SGT, since $since): $n"
+      - if: github.event_name != 'schedule' || steps.guard.outputs.earlier == '0'
+        run: node digest.mjs --vantage github
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
