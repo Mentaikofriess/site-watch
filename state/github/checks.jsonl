@@ -1,5 +1,3 @@
-{"at":"2026-09-25T20:32:14.887Z","sites":{"portfolio":["up",149],"burnt-ends":["up",487],"meatsmith":["up",72],"bakery":["up",1915],"cellars":["up",500],"meatsmith-xpress":["up",1819]}}
-{"at":"2026-09-25T23:28:37.411Z","sites":{"portfolio":["up",328],"burnt-ends":["up",446],"meatsmith":["up",89],"bakery":["up",1860],"cellars":["up",334],"meatsmith-xpress":["up",1822]}}
 {"at":"2026-09-26T01:50:35.013Z","sites":{"portfolio":["up",377],"burnt-ends":["up",424],"meatsmith":["up",158],"bakery":["up",1525],"cellars":["up",2422],"meatsmith-xpress":["up",1552]}}
 {"at":"2026-09-26T06:42:10.860Z","sites":{"portfolio":["up",197],"burnt-ends":["up",1314],"meatsmith":["up",55],"bakery":["up",2843],"cellars":["up",2681],"meatsmith-xpress":["up",2906]}}
 {"at":"2026-09-26T11:48:36.525Z","sites":{"portfolio":["up",345],"burnt-ends":["blocked",202,"HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here"],"meatsmith":["blocked",215,"HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here"],"bakery":["up",1857],"cellars":["blocked",203,"HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here"],"meatsmith-xpress":["up",1755]}}
@@ -36,3 +34,4 @@
 {"at":"2026-10-02T08:53:57.710Z","sites":{"portfolio":["up",245],"burnt-ends":["up",1009],"meatsmith":["up",180],"bakery":["up",1502],"cellars":["up",1349],"meatsmith-xpress":["up",1874]}}
 {"at":"2026-10-02T15:10:59.968Z","sites":{"portfolio":["up",859],"burnt-ends":["up",499],"meatsmith":["up",303],"bakery":["up",1827],"cellars":["up",2845],"meatsmith-xpress":["up",1790]}}
 {"at":"2026-10-02T19:56:37.477Z","sites":{"portfolio":["up",334],"burnt-ends":["up",1174],"meatsmith":["up",1314],"bakery":["up",1897],"cellars":["up",3560],"meatsmith-xpress":["up",1925]}}
+{"at":"2026-10-02T23:32:34.344Z","sites":{"portfolio":["up",471],"burnt-ends":["up",1315],"meatsmith":["up",1377],"bakery":["up",1774],"cellars":["up",1469],"meatsmith-xpress":["up",1808]}}
