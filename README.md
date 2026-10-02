@@ -1,6 +1,6 @@
 # site-watch
 
-Checks Lucas's and BEHG's websites from GitHub's servers, so it keeps
+Checks a small set of websites (see `sites.json`) from GitHub's servers, so it keeps
 watching while the Mac is asleep: **every 5 minutes** (the repo is public,
 so Actions are free; made public 2026-09-24). A second copy
 runs hourly on the Mac through Command Center's scheduler. It's the only place
@@ -35,8 +35,8 @@ out of @BotFather anyway — and separate bots keep site alerts and trading
 alerts in different chats.
 
 1. In Telegram, open **@BotFather** → send `/newbot`.
-2. Name it (e.g. `BEHG Site Watch`), then a username ending in `bot`
-   (e.g. `behg_site_watch_bot`).
+2. Name it (e.g. `Site Watch`), then a username ending in `bot`
+   (e.g. `my_site_watch_bot`).
 3. BotFather replies with a **token** like `123456789:AAH…`. Treat it like a
    password — don't paste it anywhere except step 5.
 4. Open a chat with your new bot and send it any message (`hi`). Bots can't
@@ -112,29 +112,21 @@ npm test                                  # the pure logic
 Results: `state/<vantage>/latest.json` (current) and `checks.jsonl` (30 days).
 Only `state/github/` is committed; `state/mac/` stays local.
 
-## Known issue found on day one (2026-09-23)
+## Known limits
 
-`burntendscellars.com.sg` publishes IPv6 addresses (Hostinger) that
-intermittently don't answer while IPv4 works. Visitors whose network prefers
-IPv6 can see a stall. Fix at the DNS host: repair or remove the apex's AAAA
-records. The Mac-side check reports it as **degraded: IPv6 broken** when it
-happens.
+**IPv6.** A site can publish IPv6 addresses that intermittently don't answer
+while IPv4 works, so visitors whose network prefers IPv6 see a stall. GitHub's
+runners have no IPv6, so only the Mac-side check can see it, and reports it as
+**degraded: IPv6 broken**.
 
-## Hostinger's CDN blocks GitHub (found 2026-09-24)
-
-On the first GitHub run, burntends.com.sg, meatsmith.com.sg and
-burntendscellars.com.sg returned **HTTP 403** and were reported down. They
-weren't: the Mac got 200 with the same request. These three go through
-Hostinger's CDN (`server: hcdn`), which refuses GitHub's runner IPs; bakery
-and xpress are served directly (LiteSpeed) and pass.
-
-A 403/429 whose `server` header is the CDN's own (`hcdn`, `cloudflare`) is now
-state **blocked**, not down. It never alerts, except one "down → blocked"
-message to correct an earlier false "down". A 403 from the site itself, a 5xx
-or a timeout is still **down**. Those three sites are therefore only checked
-from the Mac (hourly, while it's awake). To get GitHub coverage back,
-someone with BEHG's hPanel would allow-list or relax the CDN's bot/security
-setting for these domains. That is BEHG's call, not a change to make here.
+**CDNs that refuse GitHub's runner IPs.** Some CDNs return 403 to GitHub's IP
+ranges while serving everyone else normally. A 403/429 whose `server` header is
+the CDN's own (`hcdn`, `cloudflare`) is state **blocked**, not down. It never
+alerts, except one "down → blocked" message to correct an earlier false "down".
+A 403 from the site itself, a 5xx or a timeout is still **down**. Sites behind
+such a CDN are effectively only checked from the Mac (hourly, while it's
+awake). Getting GitHub coverage back means allow-listing the runners at the
+site's own CDN, which is the site owner's call.
 
 ## Content checks live next door (2026-09-25)
 

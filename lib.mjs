@@ -2,10 +2,9 @@
 
 // A CDN answering 403/429 itself (its `server` header, not the origin's) is
 // refusing this vantage, not reporting the site down. Found on the first
-// GitHub run (2026-09-24): Hostinger's CDN (`server: hcdn`) sends 403 to
-// GitHub's runner IPs for burntends, meatsmith and cellars, while the Mac
-// gets 200 with the same user-agent. Sites served straight from LiteSpeed
-// (bakery, xpress) aren't affected.
+// GitHub run (2026-09-24): one hosting CDN (`server: hcdn`) sends 403 to
+// GitHub's runner IPs for some sites, while the Mac gets 200 with the same
+// user-agent. Sites served straight from the origin aren't affected.
 const CDN_SERVER = /^(hcdn|cloudflare)$/i;
 export function cdnRefused(p) {
   return !p.ok && (p.status === 403 || p.status === 429) && CDN_SERVER.test(p.server ?? "");
@@ -104,7 +103,7 @@ export function digest(lines, siteIds, now, expectedRuns) {
   }
   if (clean.length) out.push(`✅ up at every check: ${clean.join(", ")}`);
   out.push(...sections);
-  if (blocked.length) out.push(`ℹ️ not visible from GitHub (Hostinger CDN blocks it; the Mac checks these): ${blocked.join(", ")}`);
+  if (blocked.length) out.push(`ℹ️ not visible from GitHub (their CDN blocks GitHub; the Mac checks these): ${blocked.join(", ")}`);
   return out.join("\n");
 }
 

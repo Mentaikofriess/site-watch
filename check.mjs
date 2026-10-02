@@ -39,8 +39,8 @@ function probe(url, family, expectText, hops = 0) {
   });
 }
 
-// One retry after 5 s: a single timeout is noise (both Meatsmith and the
-// Cellars IPv6 path flapped during the first real runs, 2026-09-23).
+// One retry after 5 s: a single timeout is noise (a couple of sites and one
+// IPv6 path flapped during the first real runs, 2026-09-23).
 async function probeTwice(url, family, expectText) {
   const first = await probe(url, family, expectText);
   if ((first.ok && first.textOk) || cdnRefused(first)) return first;
