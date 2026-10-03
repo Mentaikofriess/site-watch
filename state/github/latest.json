@@ -1,66 +1,66 @@
 {
-  "checkedAt": "2026-10-03T17:28:50.655Z",
+  "checkedAt": "2026-10-03T20:06:34.016Z",
   "vantage": "github",
   "ipv6Available": false,
   "sites": {
     "portfolio": {
       "state": "up",
-      "reason": "200 in 493 ms",
+      "reason": "200 in 225 ms",
       "url": "https://www.lucaslimky.com/",
       "group": "lucas",
-      "ms": 493,
+      "ms": 225,
       "ipv6Checked": false,
-      "streak": 53,
+      "streak": 54,
       "alerted": "up"
     },
     "burnt-ends": {
-      "state": "up",
-      "reason": "200 in 1257 ms",
+      "state": "blocked",
+      "reason": "HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here",
       "url": "https://burntends.com.sg/",
       "group": "behg",
-      "ms": 1257,
+      "ms": 97,
       "ipv6Checked": false,
-      "streak": 33,
+      "streak": 1,
       "alerted": "up"
     },
     "meatsmith": {
-      "state": "up",
-      "reason": "200 in 327 ms",
+      "state": "blocked",
+      "reason": "HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here",
       "url": "https://meatsmith.com.sg/",
       "group": "behg",
-      "ms": 327,
+      "ms": 117,
       "ipv6Checked": false,
-      "streak": 33,
+      "streak": 1,
       "alerted": "up"
     },
     "bakery": {
       "state": "up",
-      "reason": "200 in 1926 ms",
+      "reason": "200 in 1928 ms",
       "url": "https://bakery.burntends.com.sg/",
       "group": "behg",
-      "ms": 1926,
+      "ms": 1928,
       "ipv6Checked": false,
-      "streak": 53,
+      "streak": 54,
       "alerted": "up"
     },
     "cellars": {
-      "state": "up",
-      "reason": "200 in 1391 ms",
+      "state": "blocked",
+      "reason": "HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here",
       "url": "https://burntendscellars.com.sg/",
       "group": "behg",
-      "ms": 1391,
+      "ms": 190,
       "ipv6Checked": false,
-      "streak": 33,
+      "streak": 1,
       "alerted": "up"
     },
     "meatsmith-xpress": {
       "state": "up",
-      "reason": "200 in 1836 ms",
+      "reason": "200 in 1865 ms",
       "url": "https://xpress.meatsmith.com.sg/",
       "group": "behg",
-      "ms": 1836,
+      "ms": 1865,
       "ipv6Checked": false,
-      "streak": 53,
+      "streak": 54,
       "alerted": "up"
     }
   }
