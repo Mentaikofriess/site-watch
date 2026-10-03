@@ -1,16 +1,16 @@
 {
-  "checkedAt": "2026-10-03T20:06:34.016Z",
+  "checkedAt": "2026-10-03T22:51:04.968Z",
   "vantage": "github",
   "ipv6Available": false,
   "sites": {
     "portfolio": {
       "state": "up",
-      "reason": "200 in 225 ms",
+      "reason": "200 in 456 ms",
       "url": "https://www.lucaslimky.com/",
       "group": "lucas",
-      "ms": 225,
+      "ms": 456,
       "ipv6Checked": false,
-      "streak": 54,
+      "streak": 55,
       "alerted": "up"
     },
     "burnt-ends": {
@@ -18,9 +18,9 @@
       "reason": "HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here",
       "url": "https://burntends.com.sg/",
       "group": "behg",
-      "ms": 97,
+      "ms": 167,
       "ipv6Checked": false,
-      "streak": 1,
+      "streak": 2,
       "alerted": "up"
     },
     "meatsmith": {
@@ -28,19 +28,19 @@
       "reason": "HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here",
       "url": "https://meatsmith.com.sg/",
       "group": "behg",
-      "ms": 117,
+      "ms": 167,
       "ipv6Checked": false,
-      "streak": 1,
+      "streak": 2,
       "alerted": "up"
     },
     "bakery": {
       "state": "up",
-      "reason": "200 in 1928 ms",
+      "reason": "200 in 1742 ms",
       "url": "https://bakery.burntends.com.sg/",
       "group": "behg",
-      "ms": 1928,
+      "ms": 1742,
       "ipv6Checked": false,
-      "streak": 54,
+      "streak": 55,
       "alerted": "up"
     },
     "cellars": {
@@ -48,19 +48,19 @@
       "reason": "HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here",
       "url": "https://burntendscellars.com.sg/",
       "group": "behg",
-      "ms": 190,
+      "ms": 183,
       "ipv6Checked": false,
-      "streak": 1,
+      "streak": 2,
       "alerted": "up"
     },
     "meatsmith-xpress": {
       "state": "up",
-      "reason": "200 in 1865 ms",
+      "reason": "200 in 1683 ms",
       "url": "https://xpress.meatsmith.com.sg/",
       "group": "behg",
-      "ms": 1865,
+      "ms": 1683,
       "ipv6Checked": false,
-      "streak": 54,
+      "streak": 55,
       "alerted": "up"
     }
   }
