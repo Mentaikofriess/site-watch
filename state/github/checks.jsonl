@@ -43,3 +43,4 @@
 {"at":"2026-10-20T01:40:00.145Z","sites":{"portfolio":["up",335],"burnt-ends":["up",533],"meatsmith":["up",310],"bakery":["up",1743],"cellars":["up",704],"meatsmith-xpress":["up",1702]}}
 {"at":"2026-10-20T06:36:16.143Z","sites":{"portfolio":["up",598],"burnt-ends":["up",501],"meatsmith":["up",341],"bakery":["up",1728],"cellars":["up",549],"meatsmith-xpress":["up",1733]}}
 {"at":"2026-10-20T12:05:33.300Z","sites":{"portfolio":["up",400],"burnt-ends":["up",564],"meatsmith":["up",165],"bakery":["up",1805],"cellars":["up",420],"meatsmith-xpress":["up",1787]}}
+{"at":"2026-10-20T16:53:42.173Z","sites":{"portfolio":["up",367],"burnt-ends":["down",20006,"timeout after 20s (twice)"],"meatsmith":["down",20002,"timeout after 20s (twice)"],"bakery":["down",20006,"timeout after 20s (twice)"],"cellars":["down",20003,"timeout after 20s (twice)"],"meatsmith-xpress":["down",20005,"timeout after 20s (twice)"]}}
