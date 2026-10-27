@@ -1,5 +1,3 @@
-{"at":"2026-10-20T16:53:42.173Z","sites":{"portfolio":["up",367],"burnt-ends":["down",20006,"timeout after 20s (twice)"],"meatsmith":["down",20002,"timeout after 20s (twice)"],"bakery":["down",20006,"timeout after 20s (twice)"],"cellars":["down",20003,"timeout after 20s (twice)"],"meatsmith-xpress":["down",20005,"timeout after 20s (twice)"]}}
-{"at":"2026-10-20T20:12:26.656Z","sites":{"portfolio":["up",382],"burnt-ends":["up",514],"meatsmith":["up",348],"bakery":["up",1811],"cellars":["up",612],"meatsmith-xpress":["up",1781]}}
 {"at":"2026-10-20T23:10:54.701Z","sites":{"portfolio":["up",505],"burnt-ends":["up",597],"meatsmith":["up",483],"bakery":["up",1824],"cellars":["up",572],"meatsmith-xpress":["up",1686]}}
 {"at":"2026-10-21T01:33:41.307Z","sites":{"portfolio":["up",300],"burnt-ends":["blocked",173,"HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here"],"meatsmith":["blocked",91,"HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here"],"bakery":["up",1471],"cellars":["blocked",118,"HTTP 403 from the hcdn CDN — it refuses this vantage's IPs; the site is not checked from here"],"meatsmith-xpress":["up",1489]}}
 {"at":"2026-10-21T06:30:20.782Z","sites":{"portfolio":["up",390],"burnt-ends":["up",583],"meatsmith":["up",585],"bakery":["up",1697],"cellars":["up",4363],"meatsmith-xpress":["up",1741]}}
@@ -42,3 +40,4 @@
 {"at":"2026-10-27T05:23:04.442Z","sites":{"portfolio":["up",509],"burnt-ends":["up",626],"meatsmith":["up",554],"bakery":["up",1794],"cellars":["up",813],"meatsmith-xpress":["up",1771]}}
 {"at":"2026-10-27T10:43:19.714Z","sites":{"portfolio":["up",266],"burnt-ends":["up",963],"meatsmith":["up",1027],"bakery":["up",3812],"cellars":["up",1338],"meatsmith-xpress":["up",2836]}}
 {"at":"2026-10-27T16:01:30.155Z","sites":{"portfolio":["up",261],"burnt-ends":["up",400],"meatsmith":["up",203],"bakery":["up",1532],"cellars":["up",2623],"meatsmith-xpress":["up",1736]}}
+{"at":"2026-10-27T20:35:08.315Z","sites":{"portfolio":["up",433],"burnt-ends":["up",469],"meatsmith":["up",236],"bakery":["up",1754],"cellars":["up",511],"meatsmith-xpress":["up",1694]}}
