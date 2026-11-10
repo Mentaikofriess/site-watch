@@ -1,4 +1,3 @@
-{"at":"2026-11-03T15:48:06.633Z","sites":{"portfolio":["up",378],"burnt-ends":["up",446],"meatsmith":["up",245],"bakery":["up",1638],"cellars":["up",589],"meatsmith-xpress":["up",1658]}}
 {"at":"2026-11-03T21:17:22.861Z","sites":{"portfolio":["up",676],"burnt-ends":["up",511],"meatsmith":["up",316],"bakery":["up",1890],"cellars":["up",564],"meatsmith-xpress":["up",1946]}}
 {"at":"2026-11-04T01:29:00.567Z","sites":{"portfolio":["up",278],"burnt-ends":["up",446],"meatsmith":["up",211],"bakery":["up",1498],"cellars":["up",470],"meatsmith-xpress":["up",1537]}}
 {"at":"2026-11-04T07:49:29.220Z","sites":{"portfolio":["up",500],"burnt-ends":["up",525],"meatsmith":["up",301],"bakery":["up",1747],"cellars":["up",604],"meatsmith-xpress":["up",1932]}}
@@ -27,3 +26,4 @@
 {"at":"2026-11-09T20:05:22.178Z","sites":{"portfolio":["up",313],"burnt-ends":["up",391],"meatsmith":["up",187],"bakery":["up",1761],"cellars":["down",62,"ENOTFOUND getaddrinfo ENOTFOUND burntendscellars.com.sg (twice)"],"meatsmith-xpress":["up",1826]}}
 {"at":"2026-11-10T02:40:21.575Z","sites":{"portfolio":["up",348],"burnt-ends":["up",439],"meatsmith":["up",254],"bakery":["up",1713],"cellars":["down",118,"ENOTFOUND getaddrinfo ENOTFOUND burntendscellars.com.sg (twice)"],"meatsmith-xpress":["up",1724]}}
 {"at":"2026-11-10T10:24:59.002Z","sites":{"portfolio":["up",131],"burnt-ends":["up",392],"meatsmith":["up",171],"bakery":["up",1508],"cellars":["up",472],"meatsmith-xpress":["up",1834]}}
+{"at":"2026-11-10T18:02:00.380Z","sites":{"portfolio":["up",583],"burnt-ends":["up",394],"meatsmith":["up",65],"bakery":["up",1824],"cellars":["up",287],"meatsmith-xpress":["up",1770]}}
