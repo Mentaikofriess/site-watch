@@ -1,46 +1,46 @@
 {
-  "checkedAt": "2026-11-09T20:05:22.178Z",
+  "checkedAt": "2026-11-10T02:40:21.575Z",
   "vantage": "github",
   "ipv6Available": false,
   "sites": {
     "portfolio": {
       "state": "up",
-      "reason": "200 in 313 ms",
+      "reason": "200 in 348 ms",
       "url": "https://www.lucaslimky.com/",
       "group": "lucas",
-      "ms": 313,
+      "ms": 348,
       "ipv6Checked": false,
-      "streak": 245,
+      "streak": 246,
       "alerted": "up"
     },
     "burnt-ends": {
       "state": "up",
-      "reason": "200 in 391 ms",
+      "reason": "200 in 439 ms",
       "url": "https://burntends.com.sg/",
       "group": "behg",
-      "ms": 391,
+      "ms": 439,
       "ipv6Checked": false,
-      "streak": 20,
+      "streak": 21,
       "alerted": "up"
     },
     "meatsmith": {
       "state": "up",
-      "reason": "200 in 187 ms",
+      "reason": "200 in 254 ms",
       "url": "https://meatsmith.com.sg/",
       "group": "behg",
-      "ms": 187,
+      "ms": 254,
       "ipv6Checked": false,
-      "streak": 20,
+      "streak": 21,
       "alerted": "up"
     },
     "bakery": {
       "state": "up",
-      "reason": "200 in 1761 ms",
+      "reason": "200 in 1713 ms",
       "url": "https://bakery.burntends.com.sg/",
       "group": "behg",
-      "ms": 1761,
+      "ms": 1713,
       "ipv6Checked": false,
-      "streak": 20,
+      "streak": 21,
       "alerted": "up"
     },
     "cellars": {
@@ -48,19 +48,19 @@
       "reason": "ENOTFOUND getaddrinfo ENOTFOUND burntendscellars.com.sg (twice)",
       "url": "https://burntendscellars.com.sg/",
       "group": "behg",
-      "ms": 62,
+      "ms": 118,
       "ipv6Checked": false,
-      "streak": 1,
-      "alerted": "up"
+      "streak": 2,
+      "alerted": "down"
     },
     "meatsmith-xpress": {
       "state": "up",
-      "reason": "200 in 1826 ms",
+      "reason": "200 in 1724 ms",
       "url": "https://xpress.meatsmith.com.sg/",
       "group": "behg",
-      "ms": 1826,
+      "ms": 1724,
       "ipv6Checked": false,
-      "streak": 20,
+      "streak": 21,
       "alerted": "up"
     }
   }
