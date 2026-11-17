@@ -1,56 +1,56 @@
 {
-  "checkedAt": "2026-11-17T10:38:43.887Z",
+  "checkedAt": "2026-11-17T19:22:48.050Z",
   "vantage": "github",
   "ipv6Available": false,
   "sites": {
     "portfolio": {
       "state": "up",
-      "reason": "200 in 531 ms",
+      "reason": "200 in 172 ms",
       "url": "https://www.lucaslimky.com/",
       "group": "lucas",
-      "ms": 531,
+      "ms": 172,
       "ipv6Checked": false,
-      "streak": 274,
+      "streak": 275,
       "alerted": "up"
     },
     "burnt-ends": {
       "state": "up",
-      "reason": "200 in 638 ms",
+      "reason": "200 in 416 ms",
       "url": "https://burntends.com.sg/",
       "group": "behg",
-      "ms": 638,
+      "ms": 416,
       "ipv6Checked": false,
-      "streak": 49,
+      "streak": 50,
       "alerted": "up"
     },
     "meatsmith": {
       "state": "up",
-      "reason": "200 in 335 ms",
+      "reason": "200 in 160 ms",
       "url": "https://meatsmith.com.sg/",
       "group": "behg",
-      "ms": 335,
+      "ms": 160,
       "ipv6Checked": false,
-      "streak": 49,
+      "streak": 50,
       "alerted": "up"
     },
     "bakery": {
       "state": "up",
-      "reason": "200 in 1668 ms",
+      "reason": "200 in 1789 ms",
       "url": "https://bakery.burntends.com.sg/",
       "group": "behg",
-      "ms": 1668,
+      "ms": 1789,
       "ipv6Checked": false,
-      "streak": 49,
+      "streak": 50,
       "alerted": "up"
     },
     "cellars": {
       "state": "up",
-      "reason": "200 in 580 ms",
+      "reason": "200 in 458 ms",
       "url": "https://burntendscellars.com.sg/",
       "group": "behg",
-      "ms": 580,
+      "ms": 458,
       "ipv6Checked": false,
-      "streak": 28,
+      "streak": 29,
       "alerted": "up"
     },
     "meatsmith-xpress": {
@@ -60,7 +60,7 @@
       "group": "behg",
       "ms": 1663,
       "ipv6Checked": false,
-      "streak": 49,
+      "streak": 50,
       "alerted": "up"
     }
   }
