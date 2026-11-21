@@ -1,66 +1,66 @@
 {
-  "checkedAt": "2026-11-21T08:48:48.565Z",
+  "checkedAt": "2026-11-21T16:25:51.244Z",
   "vantage": "github",
   "ipv6Available": false,
   "sites": {
     "portfolio": {
       "state": "up",
-      "reason": "200 in 295 ms",
+      "reason": "200 in 699 ms",
       "url": "https://www.lucaslimky.com/",
       "group": "lucas",
-      "ms": 295,
+      "ms": 699,
       "ipv6Checked": false,
-      "streak": 287,
+      "streak": 288,
       "alerted": "up"
     },
     "burnt-ends": {
       "state": "up",
-      "reason": "200 in 507 ms",
+      "reason": "200 in 433 ms",
       "url": "https://burntends.com.sg/",
       "group": "behg",
-      "ms": 507,
+      "ms": 433,
       "ipv6Checked": false,
-      "streak": 62,
+      "streak": 63,
       "alerted": "up"
     },
     "meatsmith": {
       "state": "up",
-      "reason": "200 in 320 ms",
+      "reason": "200 in 60 ms",
       "url": "https://meatsmith.com.sg/",
       "group": "behg",
-      "ms": 320,
+      "ms": 60,
       "ipv6Checked": false,
-      "streak": 62,
+      "streak": 63,
       "alerted": "up"
     },
     "bakery": {
       "state": "up",
-      "reason": "200 in 1571 ms",
+      "reason": "200 in 1807 ms",
       "url": "https://bakery.burntends.com.sg/",
       "group": "behg",
-      "ms": 1571,
+      "ms": 1807,
       "ipv6Checked": false,
-      "streak": 62,
+      "streak": 63,
       "alerted": "up"
     },
     "cellars": {
       "state": "up",
-      "reason": "200 in 562 ms",
+      "reason": "200 in 3693 ms",
       "url": "https://burntendscellars.com.sg/",
       "group": "behg",
-      "ms": 562,
+      "ms": 3693,
       "ipv6Checked": false,
-      "streak": 41,
+      "streak": 42,
       "alerted": "up"
     },
     "meatsmith-xpress": {
       "state": "up",
-      "reason": "200 in 1722 ms",
+      "reason": "200 in 2058 ms",
       "url": "https://xpress.meatsmith.com.sg/",
       "group": "behg",
-      "ms": 1722,
+      "ms": 2058,
       "ipv6Checked": false,
-      "streak": 62,
+      "streak": 63,
       "alerted": "up"
     }
   }
